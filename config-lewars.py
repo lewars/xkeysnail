@@ -42,7 +42,7 @@ define_timeout(1)
 
 
 # Keybindings for Firefox/Chrome
-define_keymap(re.compile("Firefox|Google-chrome"), {
+define_keymap(re.compile("Firefox|Google-chrome", flags=re.IGNORECASE), {
     # Ctrl+Alt+j/k to switch next/previous tab
     K("Super-Shift-RIGHT_BRACE"): K("C-TAB"),
     K("Super-Shift-LEFT_BRACE"): K("C-Shift-TAB"),
