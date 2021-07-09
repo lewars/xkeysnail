@@ -43,9 +43,12 @@ define_timeout(1)
 
 # Keybindings for Firefox/Chrome
 define_keymap(re.compile("Firefox|Google-chrome", flags=re.IGNORECASE), {
-    # Ctrl+Alt+j/k to switch next/previous tab
+    # Tab
+    K("Super-t"): K("C-t"), # open tab
+    K("Super-w"): K("C-w"), # close tab
     K("Super-Shift-RIGHT_BRACE"): K("C-TAB"),
     K("Super-Shift-LEFT_BRACE"): K("C-Shift-TAB"),
+
     # # Type C-j to focus to the content
     # K("C-j"): K("C-f6"),
     # # very naive "Edit in editor" feature (just an example)
