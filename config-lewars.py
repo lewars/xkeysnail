@@ -155,7 +155,7 @@ define_keymap(re.compile("Firefox|Google-chrome|Brave-browser", flags=re.IGNOREC
 }, "Firefox and Chrome")
 
 # Global keybindings
-define_keymap(lambda wm_class: wm_class not in ("Emacs"), {
+define_keymap(lambda wm_class: wm_class not in ("Emacs", "gnome-terminal-server", "Gnome-terminal"), {
     # Cut, copy, and paste
     K("Super-x"): K("C-x"),
     K("Super-c"): K("C-c"),
@@ -183,7 +183,3 @@ define_keymap(lambda wm_class: wm_class not in ("Emacs"), {
     # Quit
     K("Super-q"): K("C-q"),
 }, "Global Keybindings")
-
-# Re-Keybind for Firefox/Chrome/Brave
-define_keymap(re.compile("Firefox|Google-chrome|Brave-browser", flags=re.IGNORECASE), {
-}, "Re-key Firefox and Chrome browsers")
