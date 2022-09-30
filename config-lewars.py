@@ -40,60 +40,6 @@ define_timeout(1)
 #    Key.RIGHT_SHIFT: [Key.KPRIGHTPAREN, Key.RIGHT_SHIFT]
 # })
 
-# Keybindings for Abricotine
-define_keymap(re.compile("abricotine", flags=re.IGNORECASE), {
-
-    # Newline
-    K("C-m"): K("enter"),
-    K("C-o"): [K("enter"), K("left")],
-    # Copy
-    K("C-y"): [K("C-v"), set_mark(False)],
-    # Non-Emacs cut, copy, and paste
-    K("Super-x"): K("C-x"),
-    K("Super-c"): K("C-c"),
-    K("Super-v"): K("C-v"),
-    K("Super-Shift-v"): K("C-Shift-v"),
-    # Undo
-    K("Super-z"): [K("C-z"), set_mark(False)],
-    K("Super-Shift-z"): [K("C-y"), set_mark(False)],
-    # Mark
-    K("C-space"): set_mark(True),
-    K("C-M-space"): with_or_set_mark(K("C-right")),
-    # Search
-    K("C-s"): K("F3"),
-    K("C-r"): K("Shift-F3"),
-    # Non-Emacs Search
-    K("Super-f"): K("C-f"),
-    K("Super-g"): K("Shift-F3"),
-    K("Super-Shift-g"): K("C-Shift-g"),
-    # Non-Emacs Print
-    K("Super-p"): K("C-p"),
-    # Cancel
-    K("C-g"): [K("esc"), set_mark(False)],
-    # Italic, Bold, Strike-through
-    K("Super-i"): K("C-i"),
-    K("Super-b"): K("C-b"),
-
-    # C-x YYY
-    K("C-x"): {
-    #     # C-x h (select all)
-    #     K("h"): [K("C-home"), K("C-a"), set_mark(True)],
-    #     # C-x C-f (open)
-    #     K("C-f"): K("C-o"),
-    #     # C-x C-s (save)
-    #     K("C-s"): K("C-s"),
-    #     # C-x k (kill tab)
-    #     K("k"): K("C-f4"),
-    #     # C-x C-c (exit)
-    #     K("C-c"): K("C-q"),
-    #     # cancel
-    #     K("C-g"): pass_through_key,
-    #     # C-x u (undo)
-    #     K("u"): [K("C-z"), set_mark(False)],
-    }
-
-}, "Abricotine")
-
 # Keybindings for Firefox/Chrome
 define_keymap(re.compile("Firefox|Google-chrome|Brave-browser", flags=re.IGNORECASE), {
     # Tab
@@ -118,6 +64,8 @@ define_keymap(re.compile("Firefox|Google-chrome|Brave-browser", flags=re.IGNOREC
     # K("C-w"): [K("C-x"), set_mark(False)],
     # K("M-w"): [K("C-c"), set_mark(False)],
     K("C-y"): [K("C-v"), set_mark(False)],
+    # Select all
+    K("Super-a"): K("C-a"),
     # Non-Emacs cut, copy, and paste
     K("Super-x"): K("C-x"),
     K("Super-c"): K("C-c"),
@@ -168,6 +116,8 @@ define_keymap(lambda wm_class: wm_class not in ("Emacs", "gnome-terminal-server"
     # Forward/Backward word
     K("M-b"): with_mark(K("C-left")),
     K("M-f"): with_mark(K("C-right")),
+    # Select all
+    K("Super-a"): K("C-a"),
     # Beginning/End of line
     K("C-a"): with_mark(K("home")),
     K("C-e"): with_mark(K("end")),
