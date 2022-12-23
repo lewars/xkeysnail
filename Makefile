@@ -7,3 +7,6 @@ SHELL := /usr/bin/env bash
 deploy:
 	cp config-lewars.py $$HOME/.config/xkeysnail/config.py
 
+run:
+	sudo pkill -ce xkeysnail && sleep 3 && ~/bin/xkeysnail.sh && sleep 3 \
+		&& ps -ef | grep xkeysnail
