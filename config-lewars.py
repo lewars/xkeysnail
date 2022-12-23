@@ -40,6 +40,42 @@ define_timeout(1)
 #    Key.RIGHT_SHIFT: [Key.KPRIGHTPAREN, Key.RIGHT_SHIFT]
 # })
 
+# Global keybindings
+define_keymap(
+    lambda wm_class: wm_class not in ("Emacs", "gnome-terminal-server", "Gnome-terminal", "jetbrains-idea", "gnome-boxes", "Gnome-boxes"),
+    {
+        # Cut, copy, and paste
+        K("Super-x"): K("C-x"),
+        K("Super-c"): K("C-c"),
+        K("Super-v"): K("C-v"),
+        # Cursor
+        K("C-b"): with_mark(K("left")),
+        K("C-f"): with_mark(K("right")),
+        K("C-p"): with_mark(K("up")),
+        K("C-n"): with_mark(K("down")),
+        # Forward/Backward word
+        K("M-b"): with_mark(K("C-left")),
+        K("M-f"): with_mark(K("C-right")),
+        # Select all
+        K("Super-a"): K("C-a"),
+        # Beginning/End of line
+        K("C-a"): with_mark(K("home")),
+        K("C-e"): with_mark(K("end")),
+        # Newline
+        K("C-o"): [K("enter"), K("left")],
+        # Undo
+        K("Super-z"): [K("C-z"), set_mark(False)],
+        K("Super-Shift-z"): [K("C-y"), set_mark(False)],
+        # Copy
+        K("C-y"): [K("C-v"), set_mark(False)],
+        # Kill line
+        K("C-k"): [K("Shift-end"), K("C-x"), set_mark(False)],
+        # Quit
+        K("Super-q"): K("C-q"),
+    },
+    "Global Keybindings",
+)
+
 # Keybindings for Firefox/Chrome
 define_keymap(
     re.compile("Firefox|Google-chrome|Brave-browser", flags=re.IGNORECASE),
@@ -99,42 +135,10 @@ define_keymap(
         # New Window/Incognito Window
         K("Super-n"): K("C-n"),
         K("Super-Shift-n"): K("C-Shift-n"),
+        # Style with Super-"X Key"
+        K("Super-b"): K("C-b"),
+        K("Super-i"): K("C-i"),
+        K("Super-u"): K("C-u"),
     },
     "Firefox and Chrome",
-)
-
-# Global keybindings
-define_keymap(
-    lambda wm_class: wm_class not in ("Emacs", "gnome-terminal-server", "Gnome-terminal", "gnome-boxes", "jetbrains-idea"),
-    {
-        # Cut, copy, and paste
-        K("Super-x"): K("C-x"),
-        K("Super-c"): K("C-c"),
-        K("Super-v"): K("C-v"),
-        # Cursor
-        K("C-b"): with_mark(K("left")),
-        K("C-f"): with_mark(K("right")),
-        K("C-p"): with_mark(K("up")),
-        K("C-n"): with_mark(K("down")),
-        # Forward/Backward word
-        K("M-b"): with_mark(K("C-left")),
-        K("M-f"): with_mark(K("C-right")),
-        # Select all
-        K("Super-a"): K("C-a"),
-        # Beginning/End of line
-        K("C-a"): with_mark(K("home")),
-        K("C-e"): with_mark(K("end")),
-        # Newline
-        K("C-o"): [K("enter"), K("left")],
-        # Undo
-        K("Super-z"): [K("C-z"), set_mark(False)],
-        K("Super-Shift-z"): [K("C-y"), set_mark(False)],
-        # Copy
-        K("C-y"): [K("C-v"), set_mark(False)],
-        # Kill line
-        K("C-k"): [K("Shift-end"), K("C-x"), set_mark(False)],
-        # Quit
-        K("Super-q"): K("C-q"),
-    },
-    "Global Keybindings",
 )
