@@ -42,7 +42,7 @@ define_timeout(1)
 
 # Global keybindings
 define_keymap(
-    lambda wm_class: wm_class not in ("Emacs", "gnome-terminal-server", "Gnome-terminal", "jetbrains-idea", "gnome-boxes", "Gnome-boxes"),
+    lambda wm_class: wm_class not in ("Emacs", "gnome-terminal-server", "Gnome-terminal", "jetbrains-idea", "gnome-boxes", "Gnome-boxes", "qemu", "Qemu-system-x86_64"),
     {
         # Cut, copy, and paste
         K("Super-x"): K("C-x"),
