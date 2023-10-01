@@ -1,3 +1,6 @@
+# type: ignore
+# pylint: disable=all
+# flake8: noqa
 # -*- coding: utf-8 -*-
 
 import re
@@ -53,6 +56,9 @@ define_keymap(
         K("C-f"): with_mark(K("right")),
         K("C-p"): with_mark(K("up")),
         K("C-n"): with_mark(K("down")),
+        # Delete
+        K("C-d"): [K("delete"), set_mark(False)],
+        K("M-d"): [K("C-delete"), set_mark(False)],
         # Forward/Backward word
         K("M-b"): with_mark(K("C-left")),
         K("M-f"): with_mark(K("C-right")),
@@ -74,6 +80,20 @@ define_keymap(
         K("Super-q"): K("C-q"),
     },
     "Global Keybindings",
+)
+
+# Keybindings for gnome-calculator
+define_keymap(
+    re.compile("gnome-calculator", flags=re.IGNORECASE),
+    {
+        # Cursor
+        K("C-p"): K("Alt-left"),
+        K("C-n"): K("Alt-right"),
+        # Undo
+        K("Super-z"): [K("C-z"), set_mark(False)],
+        K("Super-Shift-z"): [K("Shift-C-z"), set_mark(False)],
+    },
+    "gnome-calculator"
 )
 
 # Keybindings for Firefox/Chrome
