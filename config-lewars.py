@@ -68,7 +68,7 @@ define_keymap(
         K("Super-Shift-LEFT_BRACE"): K("C-Shift-TAB"),
         # Cursor
         K("C-b"): with_mark(K("left")),
-        # K("C-f"): with_mark(K("right")),
+        K("C-f"): with_mark(K("right")),
         K("C-p"): with_mark(K("up")),
         K("C-n"): with_mark(K("down")),
         # Delete
@@ -156,7 +156,7 @@ define_keymap(
         K("Super-v"): K("C-v"),
         # Cursor
         K("C-b"): with_mark(K("left")),
-        # K("C-f"): with_mark(K("right")),
+        K("C-f"): with_mark(K("right")),
         K("C-p"): with_mark(K("up")),
         K("C-n"): with_mark(K("down")),
         # Delete
